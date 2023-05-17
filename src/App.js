@@ -1,13 +1,15 @@
 
 import './App.css';
+import Main from './components/Main';
 import Navigation from './components/Navigation';
-import Player from './Players';
+// import Player from './Players';
 import Footer from './Footer';
 function App() {
   return (
     <div className="App">
       <Navigation/>
-      <Player/>
+      {/* <Player/> */}
+      <Main/>
       <Footer/>
     </div>
   );
