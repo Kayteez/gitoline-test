@@ -1,31 +1,32 @@
 import React from 'react'
+import { Players } from './shared/ListOfPlayers'
 import { useState } from 'react'
-export default function PlayersPresentation({ players }) {
-    //console.log(players);
-    const [player, setPlayer] = useState([])
+
+
+
+const PlayersPresentation = () => {
+    const [player, setPlayer] = useState([]);
+
     return (
-        <div className='container'>
-            {players.map((players) => (
+        <div className='grid grid-rows-3 grid-flow-col gap-3'>
+            {Players.map((player) => (
                 <div className='column'>
                     <div className='card'>
-                        <img src={players.img} />
-                        <h3>{players.name}</h3>
-                        <p className='title'>{players.club}</p>
-                        <button onClick={() => { setPlayer(players) }}>
-                            <a href='#popup1' id='openPopUp'>Detail</a>
-                        </button>
-
+                        <img src={player.img} />
+                        <h3>{player.name}</h3>
+                        <p className='title'>{player.club}</p>
+                        <p><button onClick={() => { setPlayer(player) }}>
+                            <a href="#popup1" id='openPopUp'>Detail</a>
+                        </button></p>
                     </div>
                 </div>
-            )
-            )}
-
-            <div id="popup1" className="overlay">
-                <div className="popup">
-                    <img src={player.img}></img>
-                    <h2>{player.name}</h2>
-                    <a className="close" href="#">&times;</a>
-                    <div className="content">
+            ))}
+            <div id='popup1' className='overlay'>
+                <div className='popup'>
+                    <img src={player.img} alt="" />
+                    <h2> {player.name} </h2>
+                    <a className='close' href="#">&times;</a>
+                    <div className='content'>
                         {player.info}
                     </div>
                 </div>
@@ -33,3 +34,5 @@ export default function PlayersPresentation({ players }) {
         </div>
     )
 }
+
+export default PlayersPresentation
